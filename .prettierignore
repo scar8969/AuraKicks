@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.pyc
+__pycache__/
+data/images/
+data/processed/
+data/*.db
+coverage/
+.playwright/
+test-results/
