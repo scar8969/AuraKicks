@@ -1,73 +1,101 @@
-# AuraKicks
+# AuraKicks 👟
 
-A sneaker storefront built with React, Vite, and Express.
+> Gothic sneaker marketplace — **1,953 products**, cart, search, and product detail pages. React + Vite + Express, Railway-ready.
 
-## Prerequisites
+[![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-purple)](https://vitejs.dev/)
+[![Express](https://img.shields.io/badge/Express-5-black)](https://expressjs.com/)
+[![tests](https://img.shields.io/badge/tests-vitest+playwright-brightgreen)](https://github.com/scar8969/AuraKicks/actions)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![CI](https://github.com/scar8969/AuraKicks/actions/workflows/ci.yml/badge.svg)](https://github.com/scar8969/AuraKicks/actions/workflows/ci.yml)
 
-- Node.js >= 20 (see `.nvmrc`)
-- npm
+A full-stack sneaker storefront with a gothic blackletter identity — black, red, and white. Browse a catalog of **1,953 sneaker products**, search, filter, add to cart, and open any product for full details (gallery, sizes, related items).
 
-## Install
+## ✨ Features
+
+| Feature | Detail |
+|---|---|
+| **1,953 products** | Full catalog in `api/products.json`, schema-validated |
+| **Product detail pages** | Gallery, sizes, related products, compare-at pricing |
+| **Cart** | Reducer-based (add/remove/increment/decrement/clear), persisted |
+| **Search & filters** | Find by name, brand, category |
+| **INR pricing helpers** | Effective price, sale/compare-at, EMI, free shipping ≥ ₹4,999 |
+| **Gothic identity** | Blackletter logo, black / #FF0000 / white palette |
+| **Hardened server** | Express 5 + Helmet + rate limiting, health endpoints |
+| **Accessibility** | Focus traps, keyboard navigation, semantic markup |
+
+## 🚀 Quick start
 
 ```bash
 npm ci
+npm run dev          # Vite dev server
 ```
 
-## Commands
+Production:
 
-| Command                 | Description                                      |
-| ----------------------- | ------------------------------------------------ |
-| `npm run dev`           | Start Vite dev server                            |
-| `npm run build`         | Production build to `dist/`                      |
-| `npm start`             | Start Express production server                  |
-| `npm test`              | Run unit tests (Vitest)                          |
-| `npm run test:e2e`      | Run E2E tests (Playwright)                       |
-| `npm run lint`          | Run ESLint                                       |
-| `npm run format`        | Format with Prettier                             |
-| `npm run format:check`  | Check formatting without writing                 |
-| `npm run data:validate` | Validate catalog data integrity                  |
-| `npm run check`         | Run all checks (lint, format, test, data, build) |
+```bash
+npm run build        # build to dist/
+npm start            # Express serves dist/ + API on :8080
+```
 
-## Environment Variables
+Health checks: `GET /health/live` and `GET /health/ready`.
 
-| Variable | Default | Description |
-| -------- | ------- | ----------- |
-| `PORT`   | `8080`  | Server port |
+## 🧪 Testing & quality
 
-## Architecture
+```bash
+npm test             # unit tests (Vitest + React Testing Library)
+npm run test:e2e     # E2E (Playwright)
+npm run lint         # ESLint
+npm run format:check # Prettier
+npm run data:validate# catalog schema validation
+npm run check        # everything: lint + format + test + data + build + audit
+```
 
-- **Frontend**: React 18 SPA built with Vite
-- **Backend**: Express 5 serving static files and API
-- **Data**: Product catalog in `api/products.json`
-- **Shared logic**: `src/lib/pricing.js` and `src/lib/cart.js`
+CI (`.github/workflows/ci.yml`) runs lint, format, data validation, unit tests, production build, and a production dependency audit on every push.
 
-### Key Modules
+## 🏗️ Architecture
 
-- `src/lib/pricing.js` — Shared pricing helpers (effective price, compare-at, EMI, formatting)
-- `src/lib/cart.js` — Cart reducer (add, remove, increment, decrement, clear)
-- `scripts/validate-catalog.js` — Catalog schema validator
+```
+┌────────────────────┐     ┌─────────────────────┐
+│  React 18 SPA      │────▶│  Express 5 server   │
+│  (Vite, gothic UI) │     │  (helmet, rate-limit│
+│  cart/search/detail│◀────│   health checks)    │
+└────────────────────┘     └──────────┬──────────┘
+                                      │
+                          ┌───────────▼───────────┐
+                          │  api/products.json    │
+                          │  (1,953 products)     │
+                          └───────────────────────┘
+```
 
-## Deployment
+- **Frontend**: React 18 SPA (Vite) — `src/`
+- **Backend**: Express 5 — `server.js` (static + API, helmet, rate limiting)
+- **Data**: `api/products.json` (validated by `scripts/validate-catalog.js`)
+- **Shared logic**: `src/lib/pricing.js` (INR pricing, EMI, free shipping), `src/lib/cart.js` (cart reducer)
 
-1. Run `npm ci`
-2. Run `npm run build`
-3. Start with `npm start` (or `node server.js`)
-4. The server resolves paths from `import.meta.url`, so it works from any working directory
-5. Health checks: `GET /health/live` and `GET /health/ready`
+## 📦 Deployment (Railway)
 
-## Testing
+```bash
+npm ci && npm run build && npm start
+```
 
-- Unit tests: `src/lib/*.test.js` (Vitest + React Testing Library)
-- E2E tests: `e2e/*.spec.js` (Playwright)
-- Data validation: `npm run data:validate`
+The server resolves paths from `import.meta.url`, so it works from any working directory.
 
-## CI
+## 📁 Project structure
 
-GitHub Actions workflow in `.github/workflows/ci.yml` runs:
+```
+AuraKicks/
+├── api/products.json        # 1,953-product catalog
+├── server.js                # Express 5 production server
+├── src/
+│   ├── App.jsx              # routes + layout
+│   ├── components/          # UI components
+│   └── lib/                 # pricing, cart, focus-trap (tested)
+├── e2e/                     # Playwright specs
+├── scripts/validate-catalog.js
+└── .github/workflows/ci.yml
+```
 
-- ESLint
-- Prettier check
-- Catalog data validation
-- Unit tests
-- Production build
-- Production dependency audit
+## License
+
+MIT
