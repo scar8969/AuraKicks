@@ -11,6 +11,8 @@
 
 A full-stack sneaker storefront with a gothic blackletter identity — black, red, and white. Browse a catalog of **1,953 sneaker products**, search, filter, add to cart, and open any product for full details (gallery, sizes, related items).
 
+![AuraKicks hero — gothic storefront](docs/hero.png)
+
 ## ✨ Features
 
 | Feature                  | Detail                                                          |
