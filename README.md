@@ -13,16 +13,16 @@ A full-stack sneaker storefront with a gothic blackletter identity — black, re
 
 ## ✨ Features
 
-| Feature | Detail |
-|---|---|
-| **1,953 products** | Full catalog in `api/products.json`, schema-validated |
-| **Product detail pages** | Gallery, sizes, related products, compare-at pricing |
-| **Cart** | Reducer-based (add/remove/increment/decrement/clear), persisted |
-| **Search & filters** | Find by name, brand, category |
-| **INR pricing helpers** | Effective price, sale/compare-at, EMI, free shipping ≥ ₹4,999 |
-| **Gothic identity** | Blackletter logo, black / #FF0000 / white palette |
-| **Hardened server** | Express 5 + Helmet + rate limiting, health endpoints |
-| **Accessibility** | Focus traps, keyboard navigation, semantic markup |
+| Feature                  | Detail                                                          |
+| ------------------------ | --------------------------------------------------------------- |
+| **1,953 products**       | Full catalog in `api/products.json`, schema-validated           |
+| **Product detail pages** | Gallery, sizes, related products, compare-at pricing            |
+| **Cart**                 | Reducer-based (add/remove/increment/decrement/clear), persisted |
+| **Search & filters**     | Find by name, brand, category                                   |
+| **INR pricing helpers**  | Effective price, sale/compare-at, EMI, free shipping ≥ ₹4,999   |
+| **Gothic identity**      | Blackletter logo, black / #FF0000 / white palette               |
+| **Hardened server**      | Express 5 + Helmet + rate limiting, health endpoints            |
+| **Accessibility**        | Focus traps, keyboard navigation, semantic markup               |
 
 ## 🚀 Quick start
 
