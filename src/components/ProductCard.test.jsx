@@ -98,9 +98,9 @@ describe('ProductCard', () => {
     render(
       <ProductCard product={mockProduct} fmt={formatINR} onAddToCart={onAdd} onDetail={vi.fn()} />
     )
-    await user.click(screen.getByText('42'))
+    await user.click(screen.getByText('UK 7.5'))
     await user.click(screen.getByText('add to cart'))
-    expect(onAdd).toHaveBeenCalledWith(mockProduct, '42')
+    expect(onAdd).toHaveBeenCalledWith(mockProduct, 'UK 7.5')
   })
 
   it('calls onDetail when quick view is clicked', async () => {

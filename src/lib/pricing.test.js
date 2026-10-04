@@ -54,7 +54,7 @@ describe('pricing', () => {
     expect(hasValidSizes({ sizes: ['41'] })).toBe(true)
   })
   it('getSizes returns sizes array', () => {
-    expect(getSizes({ sizes: ['41', '42'] })).toEqual(['41', '42'])
+    expect(getSizes({ sizes: ['41', '42'] })).toEqual(['UK 7', 'UK 7.5'])
   })
   it('getSizes returns empty array for missing sizes', () => {
     expect(getSizes({})).toEqual([])
